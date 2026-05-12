@@ -1,0 +1,634 @@
+:root {
+  color-scheme: light;
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #f4f1ea;
+  color: #17211f;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  border: 0;
+  cursor: pointer;
+}
+
+.appShell {
+  min-height: 100vh;
+  padding: 24px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.68), rgba(255, 255, 255, 0) 260px),
+    #f4f1ea;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin: 0 auto 18px;
+  max-width: 1440px;
+}
+
+.topbar h1,
+.panel h2 {
+  margin: 0;
+  letter-spacing: 0;
+}
+
+.topbar h1 {
+  font-size: clamp(2rem, 5vw, 4.2rem);
+  line-height: 0.95;
+}
+
+.panel h2 {
+  font-size: 1.06rem;
+}
+
+.eyebrow {
+  margin: 0 0 7px;
+  color: #6d5f4e;
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.topActions,
+.manualInput {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.callControls {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.primaryButton,
+.ghostButton,
+.dangerButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 0 15px;
+  border-radius: 8px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.callControls .primaryButton,
+.callControls .ghostButton {
+  width: 100%;
+  min-width: 0;
+  padding-inline: 10px;
+}
+
+.primaryButton {
+  background: #e94f2f;
+  color: white;
+  box-shadow: 0 10px 24px rgba(164, 48, 25, 0.22);
+}
+
+.ghostButton {
+  background: #ffffff;
+  color: #17211f;
+  border: 1px solid #d8d0c4;
+}
+
+.dangerButton {
+  background: #1d1f25;
+  color: #fff;
+}
+
+.mvpStrip {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  max-width: 1440px;
+  margin: 0 auto 14px;
+}
+
+.mvpPoint {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  min-height: 74px;
+  padding: 14px;
+  border: 1px solid #ded6ca;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.72);
+  color: #443b33;
+  font-size: 0.88rem;
+  line-height: 1.35;
+}
+
+.mvpPoint svg {
+  flex: 0 0 auto;
+  color: #0d7b66;
+}
+
+.dashboardGrid {
+  display: grid;
+  grid-template-columns: minmax(320px, 0.9fr) minmax(360px, 1.05fr) minmax(360px, 1fr);
+  grid-auto-rows: minmax(280px, auto);
+  gap: 14px;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.panel {
+  min-width: 0;
+  padding: 18px;
+  border: 1px solid #ded6ca;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: 0 18px 60px rgba(40, 31, 20, 0.08);
+}
+
+.panelHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.statusPill,
+.modeBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 32px;
+  padding: 0 10px;
+  border-radius: 999px;
+  background: #eee7da;
+  color: #5f5348;
+  font-size: 0.8rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.callControls .modeBadge {
+  grid-column: 1 / -1;
+  justify-content: center;
+  min-width: 0;
+  white-space: normal;
+  text-align: center;
+}
+
+.statusPill.isLive {
+  background: #dff3ed;
+  color: #0f6959;
+}
+
+.driveScene {
+  position: relative;
+  overflow: hidden;
+  height: 246px;
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg, #83b9c7 0%, #d8e7df 52%, #5e6560 53%, #2c2e2d 100%);
+  isolation: isolate;
+}
+
+.driveScene::before {
+  position: absolute;
+  inset: 38% -12% auto;
+  height: 58px;
+  background: #4f8c68;
+  content: "";
+  transform: rotate(-3deg);
+  z-index: -1;
+}
+
+.driveScene::after {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 54px;
+  height: 4px;
+  background: repeating-linear-gradient(90deg, #f8d25c 0 36px, transparent 36px 62px);
+  content: "";
+}
+
+.menuBoard {
+  position: absolute;
+  top: 28px;
+  left: 24px;
+  display: grid;
+  gap: 8px;
+  width: 144px;
+  padding: 14px;
+  border: 5px solid #272a2e;
+  border-radius: 6px;
+  background: #fff8e8;
+  box-shadow: 8px 14px 0 rgba(0, 0, 0, 0.16);
+}
+
+.menuBoard span {
+  color: #d4492d;
+  font-size: 0.82rem;
+  font-weight: 900;
+}
+
+.menuBoard strong {
+  color: #151a1a;
+  font-size: 1.04rem;
+  line-height: 1.05;
+}
+
+.signalTower {
+  position: absolute;
+  right: 34px;
+  top: 52px;
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 86px;
+  border-radius: 8px 8px 4px 4px;
+  background: #272a2e;
+  color: #f6c842;
+}
+
+.signalTower::after {
+  position: absolute;
+  bottom: -68px;
+  width: 10px;
+  height: 70px;
+  background: #272a2e;
+  content: "";
+}
+
+.carShape {
+  position: absolute;
+  left: 32%;
+  bottom: 34px;
+  width: 210px;
+  height: 70px;
+  border-radius: 54px 70px 24px 18px;
+  background: #e94f2f;
+  box-shadow: inset 42px 0 0 rgba(255, 255, 255, 0.12);
+}
+
+.carShape::before {
+  position: absolute;
+  top: -28px;
+  left: 48px;
+  width: 88px;
+  height: 42px;
+  border-radius: 56px 56px 0 0;
+  background: #e94f2f;
+  content: "";
+}
+
+.carShape::after {
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  bottom: -15px;
+  height: 30px;
+  border-radius: 999px;
+  background: radial-gradient(circle at 24px 15px, #111 0 13px, transparent 14px),
+    radial-gradient(circle at 158px 15px, #111 0 13px, transparent 14px);
+  content: "";
+}
+
+.manualInput {
+  margin-top: 12px;
+}
+
+.audioMeters {
+  display: grid;
+  gap: 10px;
+  margin-top: 12px;
+  padding: 12px;
+  border: 1px solid #ded6ca;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.audioMeters div {
+  display: grid;
+  grid-template-columns: 68px minmax(0, 1fr) 42px;
+  align-items: center;
+  gap: 10px;
+}
+
+.audioMeters span,
+.audioMeters b {
+  color: #6d5f4e;
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.audioMeters b {
+  color: #17211f;
+  text-align: right;
+}
+
+.manualInput input {
+  width: 100%;
+  min-width: 0;
+  height: 42px;
+  padding: 0 12px;
+  border: 1px solid #d8d0c4;
+  border-radius: 8px;
+  background: #fff;
+  color: #17211f;
+  outline: 0;
+}
+
+.transcriptPanel {
+  grid-row: span 2;
+}
+
+.transcriptList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 720px;
+  overflow: auto;
+  padding-right: 4px;
+}
+
+.bubble {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ded6ca;
+  background: #fff;
+}
+
+.bubble.agent {
+  border-color: #bfded5;
+  background: #effaf7;
+}
+
+.bubble.customer {
+  border-color: #f0c7b8;
+  background: #fff4ef;
+}
+
+.bubble.system {
+  border-color: #d7d9e5;
+  background: #f5f6fb;
+}
+
+.speaker {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #6d5f4e;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.speaker time {
+  margin-left: auto;
+  color: #8b8176;
+  font-weight: 700;
+  text-transform: none;
+}
+
+.bubble p {
+  margin: 8px 0 0;
+  line-height: 1.45;
+}
+
+.stageRail {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.stageDot {
+  padding: 7px 9px;
+  border-radius: 999px;
+  background: #eee7da;
+  color: #65594f;
+  font-size: 0.76rem;
+  font-weight: 900;
+}
+
+.stageDot.active {
+  background: #17211f;
+  color: #fff;
+}
+
+.slotGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.slot {
+  min-height: 72px;
+  padding: 12px;
+  border: 1px solid #ded6ca;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.slot span {
+  display: block;
+  color: #7a6f65;
+  font-size: 0.74rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.slot strong {
+  display: block;
+  margin-top: 8px;
+  overflow-wrap: anywhere;
+  font-size: 0.98rem;
+}
+
+.readinessBlock {
+  margin-top: 14px;
+  padding: 14px;
+  border-radius: 8px;
+  background: #17211f;
+  color: #fff;
+}
+
+.readinessBlock div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.readinessBlock strong {
+  font-size: 2.1rem;
+}
+
+progress {
+  width: 100%;
+  height: 10px;
+  overflow: hidden;
+  border: 0;
+  border-radius: 999px;
+}
+
+progress::-webkit-progress-bar {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+progress::-webkit-progress-value {
+  background: #f6c842;
+}
+
+.metricHero {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 6px 14px;
+  margin-bottom: 14px;
+  padding: 16px;
+  border-radius: 8px;
+  background: #263d8f;
+  color: #fff;
+}
+
+.metricHero span {
+  font-weight: 800;
+}
+
+.metricHero strong {
+  font-size: 2.4rem;
+  line-height: 1;
+}
+
+.metricHero p {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.rubricList {
+  display: grid;
+  gap: 10px;
+}
+
+.rubricList article {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: center;
+  padding: 12px;
+  border: 1px solid #ded6ca;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.rubricList strong,
+.rubricList span {
+  display: block;
+}
+
+.rubricList span {
+  margin-top: 4px;
+  color: #6d5f4e;
+  font-size: 0.83rem;
+  line-height: 1.35;
+}
+
+.rubricList b {
+  color: #0d7b66;
+}
+
+.promptPanel {
+  grid-column: span 2;
+}
+
+pre {
+  overflow: auto;
+  max-height: 260px;
+  margin: 0 0 12px;
+  padding: 14px;
+  border-radius: 8px;
+  background: #151a1a;
+  color: #f6f0e6;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  white-space: pre-wrap;
+}
+
+@media (max-width: 1180px) {
+  .mvpStrip,
+  .dashboardGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .transcriptPanel {
+    grid-row: auto;
+  }
+
+  .promptPanel {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 760px) {
+  .appShell {
+    padding: 14px;
+  }
+
+  .topbar,
+  .topActions,
+  .manualInput {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .callControls {
+    grid-template-columns: 1fr;
+  }
+
+  .mvpStrip,
+  .dashboardGrid,
+  .slotGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .promptPanel {
+    grid-column: auto;
+  }
+
+  .driveScene {
+    height: 210px;
+  }
+
+  .carShape {
+    left: 20%;
+    width: 180px;
+  }
+
+  .primaryButton,
+  .ghostButton,
+  .dangerButton {
+    width: 100%;
+  }
+}
