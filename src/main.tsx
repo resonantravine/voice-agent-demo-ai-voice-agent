@@ -114,8 +114,8 @@ const demoScript: Array<{ line: TranscriptLine; patch: Partial<OrderState> }> = 
   }
 ];
 
-const agentId = import.meta.env.VITE_ELEVENLABS_AGENT_ID as string | undefined;
-const hasAgentId = Boolean(agentId?.trim());
+const agentId = (import.meta.env.VITE_ELEVENLABS_AGENT_ID as string | undefined)?.trim();
+const hasAgentId = Boolean(agentId);
 
 function nowStamp() {
   return new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
@@ -252,10 +252,12 @@ function App() {
       return;
     }
 
+    const liveAgentId = agentId!;
+
     try {
       setConnectionStatus("connecting");
       const conversation = await Conversation.startSession({
-        agentId,
+        agentId: liveAgentId,
         textOnly: true,
         connectionType: "websocket",
         onConnect: ({ conversationId }) => {
@@ -303,10 +305,12 @@ function App() {
       return;
     }
 
+    const liveAgentId = agentId!;
+
     try {
       setConnectionStatus("connecting");
       const conversation = await Conversation.startSession({
-        agentId,
+        agentId: liveAgentId,
         textOnly: false,
         connectionType: "websocket",
         useWakeLock: false,
@@ -377,8 +381,9 @@ function App() {
     <main className="appShell">
       <section className="topbar">
         <div>
-          <p className="eyebrow">AI PM Portfolio MVP</p>
-          <h1>Drive-Thru Voice Agent Demo</h1>
+          <p className="eyebrow">AI PM Voice Agent Portfolio</p>
+          <h1>Voice Checkout Agent</h1>
+          <p className="heroSubhead">Drive-thru ordering MVP for real-time correction, confirmation, and human handoff.</p>
         </div>
         <div className="topActions">
           <button className="ghostButton" onClick={resetDemo}>

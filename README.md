@@ -1,4 +1,6 @@
-# Drive-Thru Voice Agent Demo
+# Voice Checkout Agent
+
+Drive-thru ordering MVP for real-time correction, confirmation, and human handoff.
 
 一个面向 AI 产品经理求职展示的 Voice Agent MVP。场景是 Drive-Thru / 电话客服订餐，因为它能自然覆盖 ASR、LLM policy、TTS、RTC/WebRTC、intent/slot、纠错、确认、人工升级和评测指标。
 

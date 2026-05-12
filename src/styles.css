@@ -55,6 +55,15 @@ button {
   line-height: 0.95;
 }
 
+.heroSubhead {
+  max-width: 720px;
+  margin: 12px 0 0;
+  color: #51463d;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
 .panel h2 {
   font-size: 1.06rem;
 }
