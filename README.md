@@ -2,7 +2,7 @@
 
 Drive-thru ordering MVP for real-time correction, confirmation, and human handoff.
 
-[Live demo](https://resonantravine.github.io/voice-agent-demo-ai-voice-agent/) · Built with React, Vite, and ElevenLabs Conversational AI
+[Live demo](https://resonantravine.github.io/voice-checkout-agent/) · Built with React, Vite, and ElevenLabs Conversational AI
 
 ## Overview
 
